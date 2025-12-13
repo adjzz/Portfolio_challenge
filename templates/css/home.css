@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
-  overflow-y: hidden; 
+  overflow-y: auto; 
   background-color: #fff; 
 }
 * {
@@ -606,9 +606,7 @@ nav a.active {
   }
 }
 
-/* =========================
-   Floating Particles
-========================= */
+
 #intro-screen::before,
 #intro-screen::after {
   content: '';
@@ -640,9 +638,7 @@ nav a.active {
   100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
 }
 
-/* =========================
-   Intro Content
-========================= */
+
 .intro-content {
   text-align: center;
   animation: introPop 1.2s ease-out forwards;
@@ -653,9 +649,6 @@ nav a.active {
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* =========================
-   Typing Text
-========================= */
 .typing-line {
   font-size: clamp(1rem, 4vw, 2rem);
   font-weight: 600;
@@ -688,9 +681,6 @@ nav a.active {
   50% { text-shadow: 0 0 16px rgba(255,255,255,0.8); }
 }
 
-/* =========================
-   Hand / Keyboard
-========================= */
 .typing-hand {
   font-size: 10rem;
   margin-top: 1rem;
@@ -708,19 +698,17 @@ nav a.active {
   50% { rotate: -3deg; }
 }
 
-/* =========================
-   Monitor
-========================= */
 .monitor {
-  width: 500px;      /* keeps size you like */
-  max-width: 90%;    /* scales on very small screens */
+  width: 90%%;    
+  max-width: 500px; 
+  min-width: 250px;   
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   animation: monitorPop 1.2s ease-out forwards;
 
-  margin: 0 auto; /* horizontally center if needed */
+  margin: 0 auto;
 }
 @keyframes monitorPop {
   0% { opacity: 0; transform: scale(0.9) translateY(20px); }
@@ -734,16 +722,10 @@ nav a.active {
 }
 
 .monitor-screen {
-  width: 100%;
-  min-height: 300px;
-  background: rgba(0,0,0,0.6);
-  border-radius: 18px;
-  padding: 2rem;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-  border: 4px solid rgba(255,255,255,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;          
+  height: auto;          
+  min-height: 200px;     
+  max-height: 400px;     
 }
 
 .monitor-stand {
@@ -754,9 +736,7 @@ nav a.active {
   border-radius: 14px;
 }
 
-/* =========================
-   Paper Plane Orbit
-========================= */
+
 .plane-orbit {
   position: absolute;
   width: 300px;
@@ -782,9 +762,7 @@ nav a.active {
   filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4));
 }
 
-/* =========================
-   Reveal Home Content
-========================= */
+
 header, main, footer {
   opacity: 0;
   animation: showHome 1s ease-out forwards;

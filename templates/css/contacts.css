@@ -12,7 +12,7 @@ body {
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   color: white;
 }
 
