@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name — Contact</title>
+  <link rel="stylesheet" href="css/contacts.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/rabbit.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contacts.html" class="active">Contact</a>
+    </nav>
+    <div class="theme-toggle">
+      <input type="checkbox" id="darkToggle">
+      <label for="darkToggle" class="toggle-label"></label>
+    </div>
+  </header>
+
+
+  <main>
+
+      <div class="rabbit rabbit1">
+      <div class="body"></div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="whisker left"></div>
+      <div class="whisker right"></div>
+    </div>
+
+    <div class="rabbit rabbit2">
+      <div class="body"></div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="whisker left"></div>
+      <div class="whisker right"></div>
+    </div>
+    
+    <h1>Contact</h1>
+
+    <div class="contact-info">
+      <h2>Email</h2>
+      <p>Personal: <a href="mailto:yourname@example.com">beinoyto@gmail.com</a></p>
+      <p>Work: <a href="mailto:work@example.com">ralfadjayest@gmail.com</a></p>
+
+      <h2>Phone</h2>
+      <p>Mobile: <a href="tel:+1234567890">09162972823</a></p>
+
+      <h2>Emergency Contact</h2>
+      <p>Name: Adelina Estenor</p>
+      <p>Phone: <a href="tel:+1122334455">09922798248</a></p>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="currentYear"></span> Ralf Adjay's Portfolio
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const toggle = document.getElementById('darkToggle');
+
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        toggle.checked = true;
+      }
+
+      toggle.addEventListener("change", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+      });
+
+      const mainContent = document.querySelector('main');
+      mainContent.classList.add('swipe-rotate-animation');
+    });
+  </script>
+
+</body>
+</html>

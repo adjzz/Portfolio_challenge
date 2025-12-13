@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ralf Adjay F. Estenor — Projects</title>
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/rabbit.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contacts.html">Contact</a>
+  </nav>
+
+  <div class="theme-toggle">
+    <input type="checkbox" id="darkToggle">
+    <label for="darkToggle" class="toggle-label"></label>
+  </div>
+</header>
+
+
+<main>
+  <div class="rabbit rabbit1">
+    <div class="body"></div>
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="whisker left"></div>
+    <div class="whisker right"></div>
+  </div>
+
+  <div class="rabbit rabbit2">
+    <div class="body"></div>
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="whisker left"></div>
+    <div class="whisker right"></div>
+  </div>
+
+  <h1>My Projects</h1>
+
+  <div class="projects-list">
+
+    <div class="project-item">
+      <div class="project-header">
+        <h3>Water Billing System v3.0</h3>
+        <span class="toggle-btn">+</span>
+      </div>
+      <div class="project-content">
+        <p>• Improved and enhanced existing web-based billing system used by the Ginatilan LGU Treasurer’s Office.</p>
+        <p>• Refined backend logic and UI using Django & Bootstrap.</p>
+        <p><strong>Roles:</strong> Backend Developer, UI Developer, Maintainer</p>
+        <img src="images/water-billing.JPEG" alt="Water Billing System">
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <h3>Game Web App</h3>
+        <span class="toggle-btn">+</span>
+      </div>
+      <div class="project-content">
+        <p>• Collaborated to build an interactive Deal or No Deal web game for CTU Nite Game Show.</p>
+        <p><strong>Roles:</strong> Backend/UI Developer, Live Sound & Effects Controller</p>
+        <img src="images/game-web-app.jpg" alt="Game Web App">
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="project-header">
+        <h3>Real-Time Mobile-to-IoT Display</h3>
+        <span class="toggle-btn">+</span>
+      </div>
+      <div class="project-content">
+        <p>• Built a real-time mobile app using Flutter with Firebase Realtime Database.</p>
+        <p>• Constructed and configured IoT hardware for seamless live updates.</p>
+        <img src="images/real-time-iot.JPEG" alt="IoT Project">
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer>
+  © <span id="currentYear"></span> Ralf Adjay's Portfolio
+</footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+
+    const toggle = document.getElementById("darkToggle");
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener("change", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    });
+
+    const mainContent = document.querySelector('main');
+    mainContent.classList.add('swipe-rotate-animation'); 
+
+    const projectItems = document.querySelectorAll('.project-item');
+
+    projectItems.forEach(item => {
+      const header = item.querySelector('.project-header');
+      const content = item.querySelector('.project-content');
+      const btn = item.querySelector('.toggle-btn');
+
+      header.addEventListener('click', () => {
+        projectItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.querySelector('.project-content').classList.remove('open');
+            otherItem.querySelector('.toggle-btn').textContent = "+";
+          }
+        });
+        content.classList.toggle('open');
+        btn.textContent = content.classList.contains('open') ? "−" : "+";
+        if (content.classList.contains('open')) {
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+
+  });
+  </script>
+
+</body>
+</html>
