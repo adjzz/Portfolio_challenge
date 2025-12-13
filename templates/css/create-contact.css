@@ -1,0 +1,117 @@
+
+#create-contact-container {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  padding: 2.5rem 2rem;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  margin-top: 2rem;
+  animation: cardFloat 4s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+#create-contact-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+#create-contact-container label {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.3rem;
+}
+
+#create-contact-container input,
+#create-contact-container textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+#create-contact-container input:focus,
+#create-contact-container textarea:focus {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#create-contact-container textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#create-contact-container button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  background: rgba(0,49,156,0.7);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+  margin-top: 0.5rem;
+}
+
+#create-contact-container button:hover {
+  background: rgba(0,49,156,0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Animation matching contact info */
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 768px) {
+  #create-contact-container {
+    padding: 2rem 1.5rem;
+  }
+
+  #create-contact-container h2 {
+    font-size: 1.6rem;
+  }
+
+  #create-contact-container textarea {
+    min-height: 100px;
+  }
+}
+
+
+.side-btn {
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.side-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 49, 156, 0.568);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}

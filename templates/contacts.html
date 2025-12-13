@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/contacts.css">
   <link rel="stylesheet" href="css/darkmode.css">
   <link rel="stylesheet" href="css/rabbit.css">
+  <link rel="stylesheet" href="css/create-contact.css">
 </head>
 
 <body>
@@ -65,6 +66,25 @@
       <p>Name: Adelina Estenor</p>
       <p>Phone: <a href="tel:+1122334455">09922798248</a></p>
     </div>
+
+    <button id="showFormBtn" class="side-btn">Add Contact</button>
+
+    <div id="create-contact-container">
+      <h2>Add New Contact</h2>
+      <form id="contactForm">
+        <label for="newName">Name</label>
+        <input type="text" id="newName" name="name" placeholder="Your Name" required>
+
+        <label for="newEmail">Email</label>
+        <input type="email" id="newEmail" name="email" placeholder="Your Email" required>
+
+        <label for="newMessage">Message</label>
+        <textarea id="newMessage" name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
   </main>
 
   <footer>
@@ -89,6 +109,26 @@
 
       const mainContent = document.querySelector('main');
       mainContent.classList.add('swipe-rotate-animation');
+    });
+
+    const showFormBtn = document.getElementById('showFormBtn');
+    const contactFormContainer = document.getElementById('create-contact-container');
+    contactFormContainer.style.display = 'none';
+    showFormBtn.addEventListener('click', () => {
+      if(contactFormContainer.style.display === 'none') {
+        contactFormContainer.style.display = 'block';
+        contactFormContainer.scrollIntoView({ behavior: 'smooth' }); 
+      } else {
+        contactFormContainer.style.display = 'none';
+      }
+    });
+
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent actual submission
+      alert('Thank you! Your message has been submitted successfully.');
+      form.reset();
+      contactFormContainer.style.display = 'none'; // hide form after submit
     });
   </script>
 
