@@ -2,7 +2,10 @@
   position: absolute;
   width: 50px;
   height: 50px;
-  z-index: 1000;
+  z-index: 0;
+  filter: blur(0.5px);
+  opacity: 0.7;  
+  pointer-events: none;   
 }
 
 .rabbit .body {
@@ -88,4 +91,10 @@
   55%  { left: 55%; bottom: 150px; }
   75%  { left: 75%; bottom: 70px; }
   100% { left: 120%; bottom: 60px; }
+}
+
+.rabbit .body,
+.rabbit .ear,
+.rabbit .leg {
+  opacity: 0.9;
 }

@@ -26,31 +26,6 @@
 
   <main>
 
-      <div class="rabbit rabbit1">
-      <div class="body"></div>
-      <div class="ear left"></div>
-      <div class="ear right"></div>
-      <div class="leg left"></div>
-      <div class="leg right"></div>
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <div class="nose"></div>
-      <div class="whisker left"></div>
-      <div class="whisker right"></div>
-    </div>
-
-    <div class="rabbit rabbit2">
-      <div class="body"></div>
-      <div class="ear left"></div>
-      <div class="ear right"></div>
-      <div class="leg left"></div>
-      <div class="leg right"></div>
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <div class="nose"></div>
-      <div class="whisker left"></div>
-      <div class="whisker right"></div>
-    </div>
     
     <h1>Contact</h1>
 
@@ -83,6 +58,33 @@
 
         <button type="submit">Submit</button>
       </form>
+    </div>
+
+
+          <div class="rabbit rabbit1">
+      <div class="body"></div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="whisker left"></div>
+      <div class="whisker right"></div>
+    </div>
+
+    <div class="rabbit rabbit2">
+      <div class="body"></div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="whisker left"></div>
+      <div class="whisker right"></div>
     </div>
 
   </main>
@@ -129,11 +131,16 @@
     });
 
     const form = document.getElementById('contactForm');
+    const successAlert = document.getElementById('successAlert');
     form.addEventListener('submit', function(e) {
-      e.preventDefault(); // prevent actual submission
-      alert('Thank you! Your message has been submitted successfully.');
+      e.preventDefault(); 
+      successAlert.classList.add('show');
+      setTimeout(() => {
+        successAlert.classList.remove('show');
+      }, 3000);
+
       form.reset();
-      contactFormContainer.style.display = 'none'; // hide form after submit
+      contactFormContainer.style.display = 'none';
     });
   </script>
 
