@@ -366,3 +366,231 @@ nav a.active {
   font-weight: 600;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
+
+
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0b6ab8 0%, #6ae67f 100%);
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* horizontal center */
+  justify-content: center; /* vertical center */
+  z-index: 9999;
+  overflow: hidden;
+
+  animation: introFadeOut 1s ease-in-out forwards;
+  animation-delay: 5s;
+  
+  padding: 0; /* remove padding to avoid offset */
+}
+
+/* Background pulse */
+@keyframes bgPulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.05); }
+}
+
+/* Exit animation */
+@keyframes introFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(6px);
+    visibility: hidden;
+  }
+}
+
+/* =========================
+   Floating Particles
+========================= */
+#intro-screen::before,
+#intro-screen::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  background: rgba(255,255,255,0.08);
+  animation: floatGlow 4s ease-in-out infinite alternate;
+}
+
+#intro-screen::before {
+  width: 250px;
+  height: 250px;
+  top: 10%;
+  left: 15%;
+}
+
+#intro-screen::after {
+  width: 350px;
+  height: 350px;
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+@keyframes floatGlow {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  50% { transform: translate(20px, -20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+}
+
+/* =========================
+   Intro Content
+========================= */
+.intro-content {
+  text-align: center;
+  animation: introPop 1.2s ease-out forwards;
+}
+
+@keyframes introPop {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =========================
+   Typing Text
+========================= */
+.typing-line {
+  font-size: clamp(1rem, 4vw, 2rem);
+  font-weight: 600;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid rgba(255,255,255,0.8);
+  width: 0;
+  max-width: 100%;
+  display: inline-block;
+
+  animation:
+    typingIntro 2s steps(24, end) forwards,
+    blinkCursor 0.7s infinite alternate,
+    textGlowWave 2s ease-in-out infinite;
+}
+
+@keyframes typingIntro {
+  from { width: 0; }
+  to { width: 24ch; }
+}
+
+@keyframes blinkCursor {
+  0%, 50%, 100% { border-color: rgba(255,255,255,0.8); }
+  25%, 75% { border-color: transparent; }
+}
+
+@keyframes textGlowWave {
+  0%, 100% { text-shadow: 0 0 8px rgba(255,255,255,0.4); }
+  50% { text-shadow: 0 0 16px rgba(255,255,255,0.8); }
+}
+
+/* =========================
+   Hand / Keyboard
+========================= */
+.typing-hand {
+  font-size: 10rem;
+  margin-top: 1rem;
+  animation: handTap 0.5s ease-in-out infinite alternate,
+             handRotate 1.5s ease-in-out infinite;
+}
+
+@keyframes handTap {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(5px); }
+}
+
+@keyframes handRotate {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: -3deg; }
+}
+
+/* =========================
+   Monitor
+========================= */
+.monitor {
+  width: 500px;      /* keeps size you like */
+  max-width: 90%;    /* scales on very small screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: monitorPop 1.2s ease-out forwards;
+
+  margin: 0 auto; /* horizontally center if needed */
+}
+@keyframes monitorPop {
+  0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@media (max-height: 600px) {
+  #intro-screen {
+    justify-content: flex-start; /* avoid vertical overflow on tiny screens */
+    padding-top: 2rem;
+  }
+}
+
+.monitor-screen {
+  width: 100%;
+  min-height: 300px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  border: 4px solid rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monitor-stand {
+  width: 120px;
+  height: 35px;
+  background: rgba(255,255,255,0.45);
+  margin-top: 12px;
+  border-radius: 14px;
+}
+
+/* =========================
+   Paper Plane Orbit
+========================= */
+.plane-orbit {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: orbit 4s linear infinite;
+}
+
+@keyframes orbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.paper-plane {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(20deg);
+  font-size: 2rem;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4));
+}
+
+/* =========================
+   Reveal Home Content
+========================= */
+header, main, footer {
+  opacity: 0;
+  animation: showHome 1s ease-out forwards;
+  animation-delay: 3s;
+}
+
+@keyframes showHome {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

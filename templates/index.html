@@ -9,6 +9,31 @@
   <link rel="stylesheet" href="css/rabbit.css">
 </head>
 <body>
+
+  <div id="intro-screen">
+    <div class="intro-content">
+
+      <!-- Monitor -->
+      <div class="monitor">
+        <div class="monitor-screen">
+          <div class="typing-line">
+            Ralf Adjay's Portfolio ...
+          </div>
+        </div>
+        <div class="monitor-stand"></div>
+      </div>
+
+      <!-- Paper Plane -->
+      <div class="plane-orbit">
+        <div class="paper-plane">✈️</div>
+      </div>
+
+      <!-- Hand -->
+      <div class="typing-hand">⌨️</div>
+
+    </div>
+  </div>
+  
   <header>
     <nav>
       <a href="index.html" class="active">Home</a>
@@ -99,6 +124,12 @@
         });
       });
     });
+
+    setTimeout(() => {
+      const intro = document.getElementById('intro-screen');
+      if (intro) intro.remove();
+    }, 3000);
+
   </script>
 
 
