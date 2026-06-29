@@ -4,25 +4,11 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  background: linear-gradient(135deg, #6ae67f 0%, #0b6ab8 100%);
-  /* background: linear-gradient(135deg, #0b6ab8 0%, #6ae67f 100%); */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: auto; 
-  background-color: #fff; 
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   min-height: 100vh;

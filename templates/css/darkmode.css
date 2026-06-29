@@ -34,7 +34,13 @@
 }
 
 #darkToggle:checked + .toggle-label {
-  background: rgba(0,0,0,0.5);
+      background: linear-gradient(
+        135deg,
+        #050505 0%,
+        #111111 25%,
+        #1b0000 55%,
+        #8b0000 100%
+    );
 }
 
 #darkToggle:checked + .toggle-label::after {
@@ -44,7 +50,13 @@
 
 
 body.dark {
-  background: linear-gradient(135deg, #1d1e24 0%, #2a2a2a 100%) !important;
+      background: linear-gradient(
+        135deg,
+        #050505 0%,
+        #272727 25%,
+        #1b0000 55%,
+        #480101 100%
+    );
 }
 
 body.dark nav a {
