@@ -759,3 +759,328 @@ header, main, footer {
   0% { opacity: 0; transform: translateY(15px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* ===========================
+   MODAL OVERLAY
+=========================== */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+
+    overflow-y:auto;
+
+    padding:30px 15px;
+
+    box-sizing:border-box;
+}
+
+/* ===========================
+   MODAL CARD
+=========================== */
+
+.modal-content{
+
+    position:relative;
+
+    width:min(90%,850px);
+
+    margin:auto;
+
+    background:rgba(255,255,255,.95);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+    animation:zoom .35s ease;
+
+    box-sizing:border-box;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+.modal-content::-webkit-scrollbar{
+    width:8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+    background:#999;
+    border-radius:10px;
+}
+
+.modal-content::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+/* ===========================
+   PROFILE IMAGE
+=========================== */
+
+.modal-image{
+
+    width:180px;
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    display:block;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border:5px solid rgba(255,255,255,.4);
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+.modal h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+.modal table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+.modal td{
+
+    padding:14px;
+
+    vertical-align:top;
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.modal td:first-child{
+
+    width:180px;
+
+    font-weight:bold;
+}
+
+/* ===========================
+   CLOSE BUTTON
+=========================== */
+
+.close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.close:hover{
+
+    color:red;
+}
+
+/* ===========================
+   OPEN ANIMATION
+=========================== */
+
+.modal.show{
+    animation:fadeIn .3s ease forwards;
+}
+
+.modal.show .modal-content{
+    animation:modalOpen .35s ease forwards;
+}
+
+/* ===========================
+   CLOSE ANIMATION
+=========================== */
+
+.modal.hide{
+    animation:fadeOut .3s ease forwards;
+}
+
+.modal.hide .modal-content{
+    animation:modalClose .3s ease forwards;
+}
+
+/* ===========================
+   KEYFRAMES
+=========================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes fadeOut{
+
+    from{
+        opacity:1;
+    }
+
+    to{
+        opacity:0;
+    }
+
+}
+
+@keyframes modalOpen{
+
+    from{
+        transform:translateY(40px) scale(.9);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+}
+
+@keyframes modalClose{
+
+    from{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(40px) scale(.9);
+        opacity:0;
+    }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:768px){
+
+    .modal-content{
+
+        width:95%;
+
+        padding:25px;
+    }
+
+    .modal-image{
+
+        width:140px;
+        height:140px;
+    }
+
+    .modal td{
+
+        display:block;
+
+        width:100%;
+    }
+
+    .modal td:first-child{
+
+        margin-top:12px;
+
+        font-size:15px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .modal-content{
+
+        width:100%;
+
+        border-radius:15px;
+
+        padding:18px;
+
+        max-height:95vh;
+    }
+
+    .modal-image{
+
+        width:120px;
+        height:120px;
+    }
+
+    .modal h2{
+
+        font-size:22px;
+    }
+
+    .modal td{
+
+        font-size:14px;
+    }
+
+}
+
+body.dark .modal{
+
+    background:rgba(0,0,0,.85);
+}
+
+body.dark .modal-content{
+
+    background:linear-gradient(
+        135deg,
+        rgba(20,20,20,.97),
+        rgba(50,0,0,.97)
+    );
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+body.dark .modal td{
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+body.dark .close{
+
+    color:white;
+}
+
+body.dark .close:hover{
+
+    color:#ff5555;
+}

@@ -75,11 +75,76 @@
     </div>
 
     <div class="profile-container">
-      <img src="images/Profile ni adjay.JPEG" alt="profile" class="profile-img">
+      <img src="images/Profile ni adjay.JPEG"
+        alt="profile"
+        class="profile-img"
+        id="profileImage">
       <h1>Ralf Adjay F. Estenor</h1>
       <p class="bio">“The Lord is my strength and my guide; in Him I trust for every step I take.” <br> Psalm 23 & Psalm 28:7</p>
     </div>
   </main>
+
+  <!-- Personal Information Modal -->
+<div id="profileModal" class="modal">
+
+  <div class="modal-content">
+
+    <span class="close">&times;</span>
+
+    <img src="images/Profile ni adjay.JPEG"
+         class="modal-image">
+    <table>
+
+      <tr>
+        <td><strong>Full Name</strong></td>
+        <td>Ralf Adjay F. Estenor</td>
+      </tr>
+
+      <tr>
+        <td><strong>Course</strong></td>
+        <td>Bachelor of Science in Information Technology</td>
+      </tr>
+
+      <tr>
+        <td><strong>School</strong></td>
+        <td>Cebu Technological University - Ginatilan Extension Campus</td>
+      </tr>
+
+      <tr>
+        <td><strong>Age</strong></td>
+        <td>24</td>
+      </tr>
+
+      <tr>
+        <td><strong>Skills</strong></td>
+        <td>Language: Python , JavaScript </td>
+        <td>Frontend: HTML , CSS , TypeScript, Bootstrap </td>
+        <td>Backend: Django </td>
+        <td>Database: Heidi SQL , MySQL </td>
+        <td>Tools: Github, Visual Studio Code, Arduino IDE </td> 
+        <td>Version Control: Git</td>  
+        <td>Networking: 
+          • LAN/WAN/WLAN fundamentals 
+          • IP addressing & subnetting 
+          • Router/switch basics 
+          • Network troubleshooting (ping, ipconfig)</td> 
+        <td>Hardware and Computer Setup</td>
+        <td>Sound Technical and IT Support</td>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>wala pakoi idea unsay e add ari ahahahah</strong></td>
+        <td>
+          huhayst adjay mweehehehhehe
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+
+</div>
 
   <footer>
     © <span id="currentYear"></span> Ralf Adjay's Portfolio
@@ -130,6 +195,55 @@
       if (intro) intro.remove();
     }, 3000);
 
+
+
+    const modal = document.getElementById("profileModal");
+    const img = document.getElementById("profileImage");
+    const closeBtn = document.querySelector(".close");
+
+    function openModal(){
+
+        modal.style.display = "block";
+
+        modal.classList.remove("hide");
+
+        modal.classList.add("show");
+
+    }
+
+    function closeModal(){
+
+        modal.classList.remove("show");
+
+        modal.classList.add("hide");
+
+        setTimeout(() => {
+
+            modal.style.display = "none";
+
+        },300);
+
+    }
+
+    img.addEventListener("click", openModal);
+
+    closeBtn.addEventListener("click", closeModal);
+
+    window.addEventListener("click", function(e){
+
+        if(e.target === modal){
+
+            closeModal();
+
+        }
+
+    });
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
   </script>
 
 
